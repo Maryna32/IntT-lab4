@@ -8,11 +8,11 @@ if (!file_exists($dataFile)) {
     die("Файл з обліковими даними не знайдено.");
 }
 
-$line = file($dataFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+$info= file($dataFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
 $isLoggedIn = false;
 
-foreach ($line as $line) {
+foreach ($info as $line) {
     list($validUsername, $validPassword) = explode(":", trim($line));
 
     if ($username === $validUsername && $password === $validPassword) {
